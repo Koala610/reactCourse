@@ -1,4 +1,61 @@
+.login-container{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px
+}
+
+.login-container h1{
+	width: 100%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+
+.loginBlock{
+	width: 50%;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: space-between;
+	height: 300px;
+
+
+
+
+
+}
 
 .loginBlock.unauth{
 	display: none;
 }
+
+.form-input{
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin: 0 auto;
+
+
+}
+
+.form-input input{
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.form-input label{
+	color: gray;
+	width: 70%;
+	margin: 5px auto;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.loginBlock button{
+	width: 30%;
+	margin: 50px auto;
+}
+

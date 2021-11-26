@@ -1,23 +1,20 @@
-import { useNavigate } from "react-router";
+import { useNavigate,  useLocation } from "react-router";
 import { useState } from 'react';
 import './Login.css'
 
-export default function Login({ authed,  setAuthed }) {
+export default function Login({ authed,  setAuthed, setUser, loginData }) {
   const navigate = useNavigate();
+  let location = useLocation()
+  let { from } = location.state || { from: { pathname: "/profile" } }
   const [loginValue, setLogin] = useState("");
   const [passValue, setPass] = useState("");
-  const loginData = [
-    {
-      name: "123",
-      password: "123"
-    },
-  ]
 
-  function onLogin() {
+  function OnLogin() {
     let res = loginData.filter((obj) => obj.name===loginValue && obj.password===passValue)
-    if (res.length >= 1){
+    if (res.length === 1){
+      setUser(res[0])
       setAuthed(true);
-      navigate('/profile');
+      navigate(from);
     }else{
       alert("Неверный логин или пароль")
     }
@@ -25,6 +22,7 @@ export default function Login({ authed,  setAuthed }) {
   }
 
   function logOut() {
+    setUser({id:-1, name:"", password:"", friends:""})
     setAuthed(false);
     navigate('/login');
   }
@@ -42,18 +40,23 @@ export default function Login({ authed,  setAuthed }) {
   }
 
   return (
-    <div>
+    <div className="login-container">
       <h1>
         Login page
+      </h1>
         <div className={"loginBlock" + " unauth".repeat(authed)}>
-          <h1>Login</h1>
-          <input type="text"  onChange={e => setLogin(e.target.value)} value={loginValue}/>
-          <h1>Password</h1>
-          <input type="text"  onChange={e => setPass(e.target.value)} value={passValue}/>
+          <div className="form-input">
+            <label>Login</label>
+            <input type="text"  onChange={e => setLogin(e.target.value)} value={loginValue}/>
+          </div>
+          <div className="form-input">
+            <label>Password</label>
+            <input type="text"  onChange={e => setPass(e.target.value)} value={passValue}/>
+          </div>
+          <button onClick={!authed ? OnLogin : logOut}>{!authed? "Login" : "Logout"}</button>
         </div>
         
-      </h1>
-      <button onClick={!authed ? onLogin : logOut}>{!authed? "Login" : "Logout"}</button>
+      
     </div>
     
   )

@@ -1,12 +1,21 @@
 import { useParams } from "react-router"
 
-export default function Profile() {
+export default function Profile({user}) {
   const { profile } = useParams();
+  if (user === undefined){
+    return(
+      <div>
+        <h1>Error</h1>
+      </div>
+      )
+  }
 
   return (
     <section>
-      <h1>Profile page!</h1>
-      <p>Your selected profile is: Elon Musk</p>
+      <h1>Profile</h1>
+      <h2>Hi, {user.name}!</h2>
+      <h2>Age: {user.age}!</h2>
+
     </section>
     
   )

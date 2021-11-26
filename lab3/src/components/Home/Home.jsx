@@ -1,8 +1,10 @@
-export default function Home() {
+export default function Home({user}) {
 
   return (
-    <section>
-    </section>
+    <div>
+      <h1>Hi {user.name !== "" ? user.name : "guest"}! This is my site!</h1>
+      <h2>To access functionality log into your account</h2>
+    </div>
     
   )
 }

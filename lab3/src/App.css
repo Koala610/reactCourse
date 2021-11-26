@@ -1,4 +1,36 @@
+
 nav{
 	display: flex;
+	background-color: rgb(13, 110, 253);
+	color: white;
+}
+
+
+
+.list-navigation{
+	display: flex;
 	flex-direction: row;
+	width: 70%;
+	list-style-type: none;
+
+
+}
+
+
+
+.list-navigation li{
+	width: 100%;
+	color: white;
+}
+
+li:visited{
+	color: white;
+}
+
+
+nav h4{
+	width: 60%;
+	margin: 12px 50px;
+	text-align: right;
+
 }
