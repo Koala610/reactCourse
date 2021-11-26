@@ -1,0 +1,64 @@
+import React from 'react';
+import Profile from './components/Profile/Profile';
+import './App.css'
+
+export default class App extends React.Component {
+  state = {
+    cur_user_id : 0
+  }
+
+  render() {
+    const profiles = [
+      {
+        id: 1,
+        name: 'Martha',
+        age: 25,
+        country: "Kazakhstan",
+        skills: ["HTML", "CSS", "JS"],
+        img: "http://www.maria.pt/wp-content/uploads/2017/05/A1-4523472_resized-e1493888105130.jpg"
+      },
+      {
+        id: 2,
+        name: 'Alex',
+        age: 20,
+        country: "Russia",
+        skills: ["Java", "Golang"],
+        img: "https://estet-portal.com/images/article/main/nadezhnyy-muzhchina-5-priznakov-horoshego-cheloveka-dlya-dolgih--1539127843.jpeg"
+      },
+      {
+        id: 3,
+        name: 'John',
+        age: 45,
+        country: "USA",
+        skills: ["Python", "Angular"],
+        img: "https://www.rabstol.net/uploads/gallery/main/190/rabstol_net_john_wick_03.jpg"
+      },
+      {
+        id: 4,
+        name: 'Alice',
+        age: 18,
+        country: "Turkey",
+        skills: ["React", "NodeJs"],
+        img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.bCixZKSjhOKeE5V07Gb2QAAAAA%26pid%3DApi&f=1"
+      }
+    ];
+    const set_random_id = () => {
+      this.setState({
+        cur_user_id : Math.floor(Math.random() * profiles.length)
+      })
+    }
+    
+
+    return (
+      <React.Fragment>
+        <h1>Random user app</h1>
+        <div className = "container1">
+          <div id = "leftSide"></div>
+          <Profile  {...profiles[this.state.cur_user_id]} />
+          <button id="generateButton" onClick={set_random_id}>Get</button>
+          <div id = "rightSide"></div>
+        </div>
+      </React.Fragment>
+    )
+  }
+}

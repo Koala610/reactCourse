@@ -1,0 +1,8 @@
+div{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.underlined{
+  text-decoration: line-through;
+}
