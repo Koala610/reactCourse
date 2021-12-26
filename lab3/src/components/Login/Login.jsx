@@ -27,14 +27,6 @@ export default function Login({ authed,  setAuthed, setUser, loginData }) {
     navigate('/login');
   }
 
-  function LoggedIn(){
-    return (
-      <div>
-        <h1>Hi</h1>
-      </div>
-      )
-  }
-
   if(authed === true){
     logOut()
   }

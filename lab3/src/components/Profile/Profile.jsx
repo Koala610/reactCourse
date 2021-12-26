@@ -1,7 +1,6 @@
-import { useParams } from "react-router"
+
 
 export default function Profile({user}) {
-  const { profile } = useParams();
   if (user === undefined){
     return(
       <div>

@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
 
 export default function Friends({user, users}) {
-  const navigate = useNavigate();
   let friends = users.filter((item)=> user.friends.includes(item.id))
   return (
     <div>
